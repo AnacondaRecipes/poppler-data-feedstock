@@ -27,10 +27,12 @@ test:
 
 about:
   home: https://poppler.freedesktop.org/
-  license: Adobe+GPLv2
+  license: GPL-2.0-or-later
   license_family: GPL
   license_file: COPYING
   summary: 'Encoding data for the Poppler PDF manipulation library.'
+  dev_url: https://gitlab.freedesktop.org/poppler/poppler
+  doc_url: https://freedesktop.org/wiki/Software/poppler/
 
 extra:
   recipe-maintainers:
