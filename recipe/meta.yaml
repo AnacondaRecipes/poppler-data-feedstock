@@ -31,7 +31,7 @@ about:
   license_family: GPL
   license_file: COPYING
   summary: 'Encoding data for the Poppler PDF manipulation library.'
-  dev_url: https://gitlab.freedesktop.org/poppler/poppler
+  dev_url: https://gitlab.freedesktop.org/poppler/poppler-data
   doc_url: https://freedesktop.org/wiki/Software/poppler/
 
 extra:
