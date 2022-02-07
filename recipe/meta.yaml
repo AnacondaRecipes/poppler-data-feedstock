@@ -27,7 +27,7 @@ test:
 
 about:
   home: https://poppler.freedesktop.org/
-  license: GPL-2.0-or-later
+  license: GPL-2.0-or-later and GPL-3.0-or-later and BSD-3-Clause
   license_family: GPL
   license_file: COPYING
   summary: 'Encoding data for the Poppler PDF manipulation library.'
