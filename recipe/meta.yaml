@@ -12,14 +12,14 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
   script:
     - make install prefix=$PREFIX
 
 requirements:
   build:
-    - make
+    - make  # [not win]
+    - m2-make  # [win]
 
 test:
   commands:
