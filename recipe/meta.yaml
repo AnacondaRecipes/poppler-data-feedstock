@@ -12,18 +12,20 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
   script:
-    - make install prefix=$PREFIX
+    - make install prefix=$PREFIX  # [not win]
+    - make install prefix=%PREFIX%  # [win]
 
 requirements:
   build:
-    - make
+    - make  # [not win]
+    - m2-make  # [win]
 
 test:
   commands:
-    - test -f $PREFIX/share/poppler/cidToUnicode/Adobe-CNS1
+    - test -f $PREFIX/share/poppler/cidToUnicode/Adobe-CNS1               # [not win]
+    - if not exist %PREFIX%/share/poppler/cidToUnicode/Adobe-CNS1 exit 1  # [win]
 
 about:
   home: https://poppler.freedesktop.org/
