@@ -24,7 +24,8 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/share/poppler/cidToUnicode/Adobe-CNS1
+    - test -f $PREFIX/share/poppler/cidToUnicode/Adobe-CNS1               # [not win]
+    - if not exist %PREFIX%/share/poppler/cidToUnicode/Adobe-CNS1 exit 1  # [win]
 
 about:
   home: https://poppler.freedesktop.org/
