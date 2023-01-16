@@ -14,7 +14,8 @@ source:
 build:
   number: 1
   script:
-    - make install prefix=$PREFIX
+    - make install prefix=$PREFIX  # [not win]
+    - make install prefix=%PREFIX%  # [win]
 
 requirements:
   build:
