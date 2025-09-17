@@ -19,6 +19,8 @@ requirements:
   build:
     - make  # [not win]
     - msys2-make  # [win]
+    - msys2-sed  # [win]
+    - msys2-coreutils  # [win]
 
 test:
   commands:
