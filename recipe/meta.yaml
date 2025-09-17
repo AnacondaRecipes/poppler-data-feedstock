@@ -1,18 +1,16 @@
 {% set name = "poppler-data" %}
-{% set version = "0.4.11" %}
-{% set sha256 = "2cec05cd1bb03af98a8b06a1e22f6e6e1a65b1e2f3816cb3069bb0874825f08c" %}
+{% set version = "0.4.12" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://poppler.freedesktop.org/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://{{ name.split('-')[0] }}.freedesktop.org/{{ name }}-{{ version }}.tar.gz
+  sha256: c835b640a40ce357e1b83666aabd95edffa24ddddd49b8daff63adb851cdab74
 
 build:
-  number: 1
+  number: 0
   script:
     - make install prefix=$PREFIX  # [not win]
     - make install prefix=%PREFIX%  # [win]
@@ -20,7 +18,7 @@ build:
 requirements:
   build:
     - make  # [not win]
-    - m2-make  # [win]
+    - msys2-make  # [win]
 
 test:
   commands:
@@ -28,13 +26,14 @@ test:
     - if not exist %PREFIX%/share/poppler/cidToUnicode/Adobe-CNS1 exit 1  # [win]
 
 about:
-  home: https://poppler.freedesktop.org/
-  license: GPL-2.0-or-later and GPL-3.0-or-later and BSD-3-Clause
-  license_family: GPL
+  home: https://poppler.freedesktop.org
+  summary: Encoding data for the Poppler PDF manipulation library.
+  license: MIT AND GPL-2.0
+  license_family: Other
   license_file: COPYING
-  summary: 'Encoding data for the Poppler PDF manipulation library.'
+  description: Poppler is a PDF rendering library based on the xpdf-3.0 code base.
   dev_url: https://gitlab.freedesktop.org/poppler/poppler-data
-  doc_url: https://freedesktop.org/wiki/Software/poppler/
+  doc_url: https://freedesktop.org/wiki/Software/poppler
 
 extra:
   recipe-maintainers:
